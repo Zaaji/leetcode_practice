@@ -1,5 +1,5 @@
 #include <iostream>
-#include "leetcode.hpp"
+#include "reverse_linked_list.hpp"
 
 Node *create_counting_linked_list(int size_of_list)
 {
@@ -20,7 +20,6 @@ int main()
     std::cout << "Original List: ";
     func->print_list(head);
     func->reverse_linked_list(head);
-    std::cout << head->data << std::endl;
     std::cout << "Reversed List: ";
     func->print_list(head);
 

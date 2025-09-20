@@ -27,21 +27,14 @@ void Node::reverse_linked_list(Node *&head)
     prev_pos->next = nullptr;
 
     int count = 0;
-    std::cout << prev_pos->data << " " << curr_pos->data << " " << next_pos->data << std::endl;
     while (next_pos != nullptr)
     {
         curr_pos->next = prev_pos;
         prev_pos = curr_pos;
-        // std::cout << prev_pos->data << " " << curr_pos->data << " " << next_pos->data << std::endl;
         curr_pos = next_pos;
-        // std::cout << prev_pos->data << " " << curr_pos->data << " " << next_pos->data << std::endl;
-        // std::cout << prev_pos->data << " " << curr_pos->data << " ";
         next_pos = next_pos->next;
-        // std::cout << next_pos->data << std::endl;
     }
-    // std::cout << prev_pos->data << " " << curr_pos->data << " " << next_pos->data << std::endl;
     curr_pos->next = prev_pos;
-    std::cout << curr_pos->data << std::endl;
     head = curr_pos;
 }
 
