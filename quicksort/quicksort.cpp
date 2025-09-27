@@ -8,7 +8,7 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-int partition(int *arr, int high, int low)
+int partition(int *arr, int low, int high)
 {
     int pivot = arr[high]; // set partition to end of array arbitrarily
     int i = low - 1;       // set index to start of low side of array - 1
@@ -24,13 +24,13 @@ int partition(int *arr, int high, int low)
         }
     }
 
-    swap(&arr[high], &arr[i + 1]); // put pivot right after the end of the low array
+    swap(&arr[i + 1], &arr[high]); // put pivot right after the end of the low array
     // everything after pivot will now be the high array and everything before the pivot will be the low array
 
     return (i + 1); // return location of pivot in order to organize the sub arrays
 }
 
-void quicksort(int *arr, int high, int low)
+void quicksort(int *arr, int low, int high)
 {
     if (low < high)
     { // while the array is not a single element
@@ -44,20 +44,20 @@ void quicksort(int *arr, int high, int low)
 
 int main()
 {
-    const int arr_size = 6;
-    int array[arr_size] = {1, 6, 7, 7, 5, 8};
+    int array[] = {1, 6, 9, 7, 5, 8};
+    int n = sizeof(array) / sizeof(array[0]);
 
-    for (int i = 0; i < arr_size; i++)
+    for (int i = 0; i < n; i++)
     {
         std::cout << array[i] << " ";
     }
     std::cout << std::endl;
 
-    quicksort(array, 0, arr_size);
+    quicksort(array, 0, n - 1);
 
-    for (int i = 0; i < arr_size; i++)
+    for (int j = 0; j < n; j++)
     {
-        std::cout << array[i] << " ";
+        std::cout << array[j] << " ";
     }
     std::cout << std::endl;
 }
